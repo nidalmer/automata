@@ -1,0 +1,51 @@
+{% extends 'convert/base.html' %}
+
+{% block title %}
+    {% if automata.transition_set.all %}
+        <h1>Automata</h1>
+    {% else %}
+        <h1>Automata: Alphabet & States</h1>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+{% load static %}
+{% static "" as baseUrl %}
+
+    {% if not automata.transition_set.all %}
+    <div class="tdl-holder">
+        <h2>Alphabet</h2>
+        <div class="tdl-content">
+            <ul>
+                {% for alphabet in automata.alphabet_set.all %}
+                    <li><label><span>{{ alphabet.alphabet }}</span></label></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="tdl-holder">
+        <h2>States</h2>
+        <div class="tdl-content">
+            <ul>
+                {% for state in automata.states_set.all %}
+                    <li><label><span>{{ state.state }}</span></label></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if automata.transition_set.all %}
+        <img src="{{ baseUrl }}img/{{ automata.id }}.png" class="auto"/>
+        <a href="{% url 'convert:dfa' automata.pk %}" class="button">NFA to DFA</a>
+        <a href="{% url 'convert:mini' automata.pk %}" class="button">Minimize</a>
+    {% else %}
+
+        <form action="{% url 'convert:transition-add' automata.pk %}" >
+            <input type="submit" value="Add Transition" class="add-trans-btn"/>
+        </form>
+    {% endif %}
+
+
+{% endblock %}

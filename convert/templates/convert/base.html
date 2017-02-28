@@ -1,0 +1,40 @@
+<html>
+    <head>
+        {% load staticfiles %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+            <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'>
+            <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+
+    </head>
+    <body>
+        <div class="form">
+            <div class="form-toggle"></div>
+            <div class="form-panel one">
+                <div class="form-header">
+                    {% block title %}
+                    {% endblock %}
+                    {% block title2 %}
+                    {% endblock %}
+                </div>
+                <div class="form-content">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="form-panel two">
+            </div>
+        </div>
+        <div class="pen-footer">
+            <a href="https://www.behance.net/gallery/30478397/Login-Form-UI-Library" target="_blank">
+                Nidal Meryem Dardar
+            </a>
+            <a href="https://github.com/andyhqtran/UI-Library/tree/master/Login%20Form" target="_blank">
+                View on Github
+                <i class="material-icons">arrow_forward</i>
+            </a>
+        </div>
+    </body>
+</html>
+

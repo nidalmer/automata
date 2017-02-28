@@ -1,0 +1,19 @@
+{% extends 'convert/base.html' %}
+
+{% block title %}
+    <h1>NFA to DFA</h1>
+{% endblock %}
+
+{% block body %}
+{% load static %}
+{% static "" as baseUrl %}
+<div class="or-spacer">
+<div>
+<img src="{{ baseUrl }}img/{{ automata.id }}.png" class="auto"/></div>
+
+  <div class="mask"></div>
+  <span><i>after</i></span>
+<div>
+<img src="{{ baseUrl }}img/DFA{{ automata.id }}.png" class="auto"/></div>
+</div>
+{% endblock %}
