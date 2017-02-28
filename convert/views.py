@@ -25,17 +25,24 @@ class DFAView(generic.DetailView):
     model = Automata
     template_name = 'convert/dfa.html'
     context_object_name = 'automata'
-    command = "python NFAtoDFA.py"
-    subprocess.call(command, shell=True)
+
+    def get_context_data(self, **kwargs):
+        data = super(DFAView, self).get_context_data(**kwargs)
+        command = "python NFAtoDFA.py"
+        subprocess.call(command, shell=True)
+        return data
+
 
 
 class MiniView(generic.DetailView):
     model = Automata
     template_name = 'convert/mini.html'
     context_object_name = 'automata'
-    command = "python MiniDFA.py"
-    subprocess.call(command, shell=True)
-
+    def get_context_data(self, **kwargs):
+        data = super(MiniView, self).get_context_data(**kwargs)
+        command = "python MiniDFA.py"
+        subprocess.call(command, shell=True)
+        return data
 
 class AutomataCreate(CreateView):
     model = Automata

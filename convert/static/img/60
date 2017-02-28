@@ -1,0 +1,18 @@
+digraph {
+rankdir=LR
+size="100"
+	" " [label=" " shape=point]
+		" " -> A
+	A [label=A shape=circle]
+	B [label=B shape=doublecircle]
+	C [label=C shape=circle]
+	D [label=D shape=doublecircle]
+		A -> C [label=0]
+		A -> B [label=a]
+		B -> D [label=0]
+		B -> D [label=a]
+		C -> C [label=a]
+		C -> C [label=0]
+		D -> D [label=a]
+		D -> D [label=0]
+}

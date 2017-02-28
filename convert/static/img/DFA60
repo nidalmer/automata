@@ -1,0 +1,22 @@
+digraph {
+rankdir=LR
+size="100"
+	"['A']" [label=A]
+	node [peripheries=2]
+	"['B']" [label=B]
+	node [peripheries=1]
+	"['C']" [label=C]
+	node [peripheries=2]
+	"['D']" [label=D]
+	node [peripheries=1]
+		"['D']" -> "['D']" [label=0]
+		"['D']" -> "['D']" [label=a]
+		"['C']" -> "['C']" [label=0]
+		"['C']" -> "['C']" [label=a]
+	" " [label=" " shape=point]
+		" " -> "['A']"
+		"['A']" -> "['C']" [label=0]
+		"['A']" -> "['B']" [label=a]
+		"['B']" -> "['D']" [label=0]
+		"['B']" -> "['D']" [label=a]
+}
